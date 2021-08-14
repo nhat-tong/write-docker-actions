@@ -12,3 +12,14 @@ jobs:
         uses: ./.github/actions/hello-world
         with:
           firstGreeting: "Learning Lab User"
+
+      - name: meow
+        uses: ./.github/actions/cat-facts
+        id: cat
+
+      - name: create-issue
+        uses: ./.github/actions/issue-maker
+        with:
+          repoToken: ${{ github.token }}
+          catFact: ${{ steps.cat.outputs.fact }}
+          issueTitle: a cat fact for you
