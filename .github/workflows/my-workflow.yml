@@ -15,10 +15,6 @@ jobs:
       - name: meow
         uses: ./.github/actions/cat-facts
         id: cat
-      - name: install npm packages
-        run: |
-          cd ./.github/actions/issue-maker
-          npm install
       - name: create-issue
         uses: ./.github/actions/issue-maker
         with:
